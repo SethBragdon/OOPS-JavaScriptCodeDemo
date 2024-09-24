@@ -35,8 +35,15 @@ class Sprite
     }
 }
 
+function rectangularCollision()
+{
+    
+}
+
 let player = new Sprite(40, 40, 0, 0, 1, 1);
 player.draw();
+
+let rock = new Sprite (80, 50, 250, 200, 0, 0);
 
 function mainLoop()
 {
@@ -45,6 +52,8 @@ function mainLoop()
     c.fillRect(0, 0, canvas.width, canvas.height);
     
     player.update();
+    
+    rock.update();
     
     window.requestAnimationFrame(mainLoop);
 }
@@ -55,8 +64,18 @@ window.addEventListener('keydown', (event) =>
 {
     switch(event.key)
     {
-        case 'd':
-            alert('d');
+        case 'ArrowUp':
+            player.ySpeed = -1;
+            break;
+    }
+});
+
+window.addEventListener('keyup', (event) =>
+{
+    switch(event.key)
+    {
+        case 'ArrowUp':
+            player.ySpeed = 0;
             break;
     }
 });
