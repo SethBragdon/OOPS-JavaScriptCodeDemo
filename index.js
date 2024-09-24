@@ -40,7 +40,7 @@ function rectangularCollision()
     
 }
 
-let player = new Sprite(40, 40, 0, 0, 1, 1);
+let player = new Sprite(40, 40, 0, 0, 0, 0);
 player.draw();
 
 let rock = new Sprite (80, 50, 250, 200, 0, 0);
@@ -65,7 +65,16 @@ window.addEventListener('keydown', (event) =>
     switch(event.key)
     {
         case 'ArrowUp':
-            player.ySpeed = -1;
+            player.ySpeed = -5;
+            break;
+        case 'ArrowDown':
+            player.ySpeed = 5;
+            break;
+        case 'ArrowLeft':
+            player.xSpeed = -5;
+            break;
+        case 'ArrowRight':
+            player.xSpeed = 5;
             break;
     }
 });
@@ -76,6 +85,15 @@ window.addEventListener('keyup', (event) =>
     {
         case 'ArrowUp':
             player.ySpeed = 0;
+            break;
+        case 'ArrowDown':
+            player.ySpeed = 0;
+            break;
+        case 'ArrowLeft':
+            player.xSpeed = 0;
+            break;
+        case 'ArrowRight':
+            player.xSpeed = 0;
             break;
     }
 });
